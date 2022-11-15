@@ -294,7 +294,7 @@ module Datadog
 
         response = HTTP::Client.new(CONFIG.apm_base_url).exec_without_instrumentation(
           HTTP::Request.new(
-            method: "POST",
+            method: "PUT",
             resource: "/v0.5/traces",
             headers: HTTP::Headers {
               "Content-Type" => "application/msgpack",
