@@ -297,7 +297,7 @@ module Datadog
             method: "PUT",
             resource: "/v0.5/traces",
             headers: HTTP::Headers {
-              "Content-Type" => "application/msgpack",
+              "Content-Type" => "application/json",
               "Datadog-Meta-Lang" => "crystal",
               "Datadog-Meta-Lang-Version" => Crystal::VERSION,
               "Datadog-Meta-Tracer-Version" => VERSION,
@@ -305,7 +305,7 @@ module Datadog
               "User-Agent" => "Crystal Datadog shard (https://github.com/jgaskins/datadog)",
               "X-Datadog-Trace-Count" => @current_traces.size.to_s,
             },
-            body: @current_traces.to_msgpack,
+            body: @current_traces.to_json,
           )
         )
 
